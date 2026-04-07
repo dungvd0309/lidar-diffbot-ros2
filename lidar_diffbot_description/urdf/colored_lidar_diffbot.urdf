@@ -9,14 +9,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/base_link.dae"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/visual/base_link.dae"/>
       </geometry>
       <material name="__unnamed_material_1"/>
       <origin xyz="6.86520889051681e-16 0.0 -0.0183" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/base_link.stl"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/collision/base_link.stl"/>
       </geometry>
       <origin xyz="6.86520889051681e-16 0.0 -0.0183" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -29,14 +29,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/left_wheel_link.dae"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/visual/left_wheel_link.dae"/>
       </geometry>
       <material name="__unnamed_material_2"/>
       <origin xyz="6.86520889051681e-16 0.0183 -0.0900000000000007" rpy="1.57079632679486 -6.12323399573677e-16 2.35170729524333e-29"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/left_wheel_link.stl"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/collision/left_wheel_link.stl"/>
       </geometry>
       <origin xyz="6.86520889051681e-16 0.0183 -0.0900000000000007" rpy="1.57079632679486 -6.12323399573677e-16 2.35170729524333e-29"/>
     </collision>
@@ -49,14 +49,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/right_wheel_link.dae"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/visual/right_wheel_link.dae"/>
       </geometry>
       <material name="__unnamed_material_3"/>
       <origin xyz="6.86520889051681e-16 0.0183 0.0899999999999993" rpy="1.57079632679486 -6.12323399573677e-16 2.35170729524333e-29"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/right_wheel_link.stl"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/collision/right_wheel_link.stl"/>
       </geometry>
       <origin xyz="6.86520889051681e-16 0.0183 0.0899999999999993" rpy="1.57079632679486 -6.12323399573677e-16 2.35170729524333e-29"/>
     </collision>
@@ -69,14 +69,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/caster_wheel_link.dae"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/visual/caster_wheel_link.dae"/>
       </geometry>
       <material name="__unnamed_material_4"/>
       <origin xyz="-0.135 4.41120185233342e-16 0.00626249999999999" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/caster_wheel_link.stl"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/collision/caster_wheel_link.stl"/>
       </geometry>
       <origin xyz="-0.135 4.41120185233342e-16 0.00626249999999999" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -89,14 +89,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/imu_link.dae"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/visual/imu_link.dae"/>
       </geometry>
       <material name="__unnamed_material_5"/>
       <origin xyz="-0.0382799999999992 -3.12496121097359e-16 -0.0199985784719009" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/imu_link.stl"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/collision/imu_link.stl"/>
       </geometry>
       <origin xyz="-0.0382799999999992 -3.12496121097359e-16 -0.0199985784719009" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -109,14 +109,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/laser_link.dae"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/visual/laser_link.dae"/>
       </geometry>
       <material name="__unnamed_material_6"/>
       <origin xyz="-0.156859903502094 4.09045498450007e-05 -0.103351884899403" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://lidar_diffbot/meshes/laser_link.stl"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/collision/laser_link.stl"/>
       </geometry>
       <origin xyz="-0.156859903502094 4.09045498450007e-05 -0.103351884899403" rpy="0.0 -0.0 0.0"/>
     </collision>

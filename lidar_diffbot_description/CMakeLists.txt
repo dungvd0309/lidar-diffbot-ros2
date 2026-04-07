@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(lidar_diffbot)
+project(lidar_diffbot_description)
 
 find_package(ament_cmake REQUIRED)
 
@@ -10,6 +10,7 @@ install(
     meshes
     config
     launch
+    rviz
     world
   DESTINATION share/${PROJECT_NAME}
 )

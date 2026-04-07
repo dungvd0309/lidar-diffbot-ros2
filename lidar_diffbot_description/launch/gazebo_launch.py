@@ -14,7 +14,7 @@ from pathlib import Path
 from launch.conditions import IfCondition
 
 def generate_launch_description():
-    bringup_dir = get_package_share_directory('lidar_diffbot')
+    bringup_dir = get_package_share_directory('lidar_diffbot_description')
     urdf_file = LaunchConfiguration('urdf_file')
     use_sim_time = LaunchConfiguration('use_sim_time')
     world_file = os.path.join(bringup_dir , "world", "indoor_world.sdf")

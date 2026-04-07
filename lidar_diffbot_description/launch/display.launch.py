@@ -12,9 +12,11 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    pkg_share = get_package_share_directory('lidar_diffbot')
-    default_model_path = os.path.join(pkg_share, 'urdf', 'colored_lidar_diffbot.urdf')
+    pkg_share = get_package_share_directory('lidar_diffbot_description')
+    default_model_path = os.path.join(pkg_share, 'urdf', 'lidar_diffbot.urdf')
+    default_rviz_config_path = os.path.join(pkg_share, 'rviz', 'default.rviz')
 
+    # Launch arguments
     model_arg = DeclareLaunchArgument(
         'model',
         default_value=default_model_path,
@@ -30,14 +32,20 @@ def generate_launch_description():
         default_value='true',
         description='Start RViz2',
     )
+    rviz_config_arg = DeclareLaunchArgument(
+        'rviz_config',
+        default_value=default_rviz_config_path,
+        description='Absolute path to RViz config file',
+    )
 
     robot_description_content = ParameterValue(
         Command(['cat ', LaunchConfiguration('model')]),
         value_type=str,
     )
 
+    # Launch executables
     robot_state_publisher = Node(
-        package='robot_state_publisher',
+        package='robot_state_publisher',    
         executable='robot_state_publisher',
         output='screen',
         parameters=[{'robot_description': robot_description_content}],
@@ -61,6 +69,7 @@ def generate_launch_description():
         package='rviz2',
         executable='rviz2',
         output='screen',
+        arguments=['-d', LaunchConfiguration('rviz_config')],
         condition=IfCondition(LaunchConfiguration('rviz')),
     )
 
@@ -69,6 +78,7 @@ def generate_launch_description():
             model_arg,
             gui_arg,
             rviz_arg,
+            rviz_config_arg,
             robot_state_publisher,
             joint_state_publisher,
             joint_state_publisher_gui,
