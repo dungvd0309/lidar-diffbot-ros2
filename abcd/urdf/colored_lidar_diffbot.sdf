@@ -1,0 +1,395 @@
+<?xml version='1.0'?>
+<sdf version='1.7'>
+  <model name='lidar_diffbot'>
+    <static>false</static>
+    <self_collide>false</self_collide>
+    <allow_auto_disable>false</allow_auto_disable>
+
+    <link name='base_footprint'>
+      <inertial>
+        <pose>0.042792 0.00052521 0.018606 0 0 0</pose>
+        <mass>1.9115</mass>
+        <inertia>
+          <ixx>0.0067178</ixx>
+          <ixy>1.6443e-05</ixy>
+          <ixz>-0.00010546</ixz>
+          <iyy>0.0063408</iyy>
+          <iyz>-8.6058e-06</iyz>
+          <izz>0.01183</izz>
+        </inertia>
+      </inertial>
+
+      <visual name='base_visual'>
+        <pose>0 0 -0.0183 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/base_link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <collision name='base_collision'>
+        <pose>0 0 -0.0183 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/base_link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name='left_wheel_link'>
+      <inertial>
+        <pose>0.000392050000000687 0.0183089504 -0.0899973472000007 0 0 0</pose>
+        <mass>0.079032</mass>
+        <inertia>
+          <ixx>2.8217e-05</ixx>
+          <ixy>2.62659999989198e-10</ixy>
+          <ixz>-3.52829999999999e-09</ixz>
+          <iyy>4.608e-05</iyy>
+          <iyz>1.04399999312683e-10</iyz>
+          <izz>2.8184e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='left_wheel_visual'>
+        <pose>0 0.0183 -0.09 1.57079632679486 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/left_wheel_link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='left_wheel_collision'>
+        <pose>0 0.0183 -0.09 1.57079632679486 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/left_wheel_link.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.2</mu>
+              <mu2>1.2</mu2>
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1000000.0</kp>
+              <kd>1.0</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='right_wheel_link'>
+      <inertial>
+        <pose>0.000450370000000687 0.0182910496 0.0900017011999993 0 0 0</pose>
+        <mass>0.079032</mass>
+        <inertia>
+          <ixx>2.8217e-05</ixx>
+          <ixy>2.65929999988967e-10</ixy>
+          <ixz>2.46390000000001e-09</ixz>
+          <iyy>4.608e-05</iyy>
+          <iyz>-9.57740006873206e-11</iyz>
+          <izz>2.8184e-05</izz>
+        </inertia>
+      </inertial>
+      <visual name='right_wheel_visual'>
+        <pose>0 0.0183 0.09 1.57079632679486 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/right_wheel_link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='right_wheel_collision'>
+        <pose>0 0.0183 0.09 1.57079632679486 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/right_wheel_link.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.2</mu>
+              <mu2>1.2</mu2>
+              <slip1>0.02</slip1>
+              <slip2>0.02</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1000000.0</kp>
+              <kd>1.0</kd>
+              <max_vel>0.2</max_vel>
+              <min_depth>0.001</min_depth>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='caster_wheel_link'>
+      <inertial>
+        <pose>-0.1350000083262 -1.42829995588798e-08 0.00993269999999999 0 0 0</pose>
+        <mass>0.0070691</mass>
+        <inertia>
+          <ixx>5.0192e-07</ixx>
+          <ixy>-1.367e-12</ixy>
+          <ixz>-1.3539e-13</ixz>
+          <iyy>4.5156e-07</iyy>
+          <iyz>-1.5417e-13</iyz>
+          <izz>7.136e-07</izz>
+        </inertia>
+      </inertial>
+      <visual name='caster_wheel_visual'>
+        <pose>-0.135 0 0.00626249999999999 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/caster_wheel_link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='caster_wheel_collision'>
+        <pose>-0.135 0 0.00626249999999999 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/caster_wheel_link.stl</uri>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.2</mu>
+              <mu2>0.2</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+
+    <link name='imu_link'>
+      <inertial>
+        <pose>-0.0380467899999992 -9.83990000003125e-05 -0.0207004384719009 0 0 0</pose>
+        <mass>0.00046281</mass>
+        <inertia>
+          <ixx>1.5422e-08</ixx>
+          <ixy>-3.273e-14</ixy>
+          <ixz>-1.9001e-15</ixz>
+          <iyy>4.9552e-09</iyy>
+          <iyz>2.2747e-13</iyz>
+          <izz>2.0169e-08</izz>
+        </inertia>
+      </inertial>
+      <visual name='imu_visual'>
+        <pose>-0.0382799999999992 0 -0.0199985784719009 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/imu_link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='imu_collision'>
+        <pose>-0.0382799999999992 0 -0.0199985784719009 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/imu_link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <sensor name='imu_sensor' type='imu'>
+        <always_on>true</always_on>
+        <update_rate>100</update_rate>
+        <topic>imu</topic>
+        <imu>
+          <angular_velocity>
+            <x>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.0002</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.0002</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.0002</stddev>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.017</stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.017</stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type='gaussian'>
+                <mean>0.0</mean>
+                <stddev>0.017</stddev>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+      </sensor>
+    </link>
+
+    <link name='lidar_link'>
+      <inertial>
+        <pose>-0.156859903502094 4.09045498450007e-05 -0.103351884899403 0 0 0</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>1e-5</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1e-5</iyy>
+          <iyz>0</iyz>
+          <izz>1e-5</izz>
+        </inertia>
+      </inertial>
+      <visual name='lidar_visual'>
+        <pose>-0.156859903502094 4.09045498450007e-05 -0.103351884899403 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/lidar_link.stl</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name='lidar_collision'>
+        <pose>-0.156859903502094 4.09045498450007e-05 -0.103351884899403 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://lidar_diffbot/meshes/lidar_link.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <sensor name='lidar_sensor' type='gpu_lidar'>
+        <always_on>true</always_on>
+        <update_rate>15</update_rate>
+        <topic>scan</topic>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>720</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.14159</min_angle>
+              <max_angle>3.14159</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.12</min>
+            <max>12.0</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+      </sensor>
+    </link>
+
+    <joint name='left_wheel_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0 0.09 0 -1.5708 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>left_wheel_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>5.0</effort>
+          <velocity>30.0</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.1</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name='right_wheel_joint' type='revolute'>
+      <pose relative_to='base_footprint'>0 -0.09 0 -1.5708 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>right_wheel_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+          <effort>5.0</effort>
+          <velocity>30.0</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.1</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name='caster_wheel_joint' type='fixed'>
+      <pose relative_to='base_footprint'>0.135 0 -0.024563 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>caster_wheel_link</child>
+    </joint>
+
+    <joint name='imu_joint' type='fixed'>
+      <pose relative_to='base_footprint'>0.03828 0 0.0016986 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>imu_link</child>
+    </joint>
+
+    <joint name='lidar_joint' type='fixed'>
+      <pose relative_to='base_footprint'>0.15686 -4.0905e-05 0.085052 0 0 0</pose>
+      <parent>base_footprint</parent>
+      <child>lidar_link</child>
+    </joint>
+
+    <plugin filename='gz-sim-diff-drive-system' name='gz::sim::systems::DiffDrive'>
+      <left_joint>left_wheel_joint</left_joint>
+      <right_joint>right_wheel_joint</right_joint>
+      <wheel_separation>0.18</wheel_separation>
+      <wheel_radius>0.045</wheel_radius>
+      <max_linear_velocity>0.8</max_linear_velocity>
+      <min_linear_velocity>-0.8</min_linear_velocity>
+      <max_angular_velocity>2.5</max_angular_velocity>
+      <min_angular_velocity>-2.5</min_angular_velocity>
+      <max_linear_acceleration>1.0</max_linear_acceleration>
+      <max_angular_acceleration>3.0</max_angular_acceleration>
+      <odom_publish_frequency>50</odom_publish_frequency>
+      <topic>cmd_vel</topic>
+      <odom_topic>odom</odom_topic>
+      <tf_topic>tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_footprint</child_frame_id>
+    </plugin>
+
+    <plugin filename='gz-sim-joint-state-publisher-system' name='gz::sim::systems::JointStatePublisher'>
+      <topic>joint_states</topic>
+      <joint_name>left_wheel_joint</joint_name>
+      <joint_name>right_wheel_joint</joint_name>
+    </plugin>
+  </model>
+</sdf>

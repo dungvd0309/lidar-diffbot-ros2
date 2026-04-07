@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<robot name="lidar_diffbot">
+  <link name="base_footprint"/>
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0.0427920000000007 0.00052521 0.018606" rpy="0.0 -0.0 0.0"/>
+      <mass value="1.9115"/>
+      <inertia ixx="0.0067178" ixy="1.6443e-05" ixz="-0.00010546" iyy="0.0063408" iyz="-8.6058e-06" izz="0.01183"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/base_link.dae"/>
+      </geometry>
+      <material name="__unnamed_material_1"/>
+      <origin xyz="6.86520889051681e-16 0.0 -0.0183" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/base_link.stl"/>
+      </geometry>
+      <origin xyz="6.86520889051681e-16 0.0 -0.0183" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="left_wheel_link">
+    <inertial>
+      <origin xyz="0.000392050000000687 0.0183089504 -0.0899973472000007" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.079032"/>
+      <inertia ixx="2.8217e-05" ixy="2.62659999989198e-10" ixz="-3.52829999999999e-09" iyy="4.608e-05" iyz="1.04399999312683e-10" izz="2.8184e-05"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/left_wheel_link.dae"/>
+      </geometry>
+      <material name="__unnamed_material_2"/>
+      <origin xyz="6.86520889051681e-16 0.0183 -0.0900000000000007" rpy="1.57079632679486 -6.12323399573677e-16 2.35170729524333e-29"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/left_wheel_link.stl"/>
+      </geometry>
+      <origin xyz="6.86520889051681e-16 0.0183 -0.0900000000000007" rpy="1.57079632679486 -6.12323399573677e-16 2.35170729524333e-29"/>
+    </collision>
+  </link>
+  <link name="right_wheel_link">
+    <inertial>
+      <origin xyz="0.000450370000000687 0.0182910496 0.0900017011999993" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.079032"/>
+      <inertia ixx="2.8217e-05" ixy="2.65929999988967e-10" ixz="2.46390000000001e-09" iyy="4.608e-05" iyz="-9.57740006873206e-11" izz="2.8184e-05"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/right_wheel_link.dae"/>
+      </geometry>
+      <material name="__unnamed_material_3"/>
+      <origin xyz="6.86520889051681e-16 0.0183 0.0899999999999993" rpy="1.57079632679486 -6.12323399573677e-16 2.35170729524333e-29"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/right_wheel_link.stl"/>
+      </geometry>
+      <origin xyz="6.86520889051681e-16 0.0183 0.0899999999999993" rpy="1.57079632679486 -6.12323399573677e-16 2.35170729524333e-29"/>
+    </collision>
+  </link>
+  <link name="caster_wheel_link">
+    <inertial>
+      <origin xyz="-0.1350000083262 -1.42829995588798e-08 0.00993269999999999" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.0070691"/>
+      <inertia ixx="5.0192e-07" ixy="-1.367e-12" ixz="-1.3539e-13" iyy="4.5156e-07" iyz="-1.5417e-13" izz="7.136e-07"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/caster_wheel_link.dae"/>
+      </geometry>
+      <material name="__unnamed_material_4"/>
+      <origin xyz="-0.135 4.41120185233342e-16 0.00626249999999999" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/caster_wheel_link.stl"/>
+      </geometry>
+      <origin xyz="-0.135 4.41120185233342e-16 0.00626249999999999" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="imu_link">
+    <inertial>
+      <origin xyz="-0.0380467899999992 -9.83990000003125e-05 -0.0207004384719009" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.00046281"/>
+      <inertia ixx="1.5422e-08" ixy="-3.273e-14" ixz="-1.9001e-15" iyy="4.9552e-09" iyz="2.2747e-13" izz="2.0169e-08"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/imu_link.dae"/>
+      </geometry>
+      <material name="__unnamed_material_5"/>
+      <origin xyz="-0.0382799999999992 -3.12496121097359e-16 -0.0199985784719009" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/imu_link.stl"/>
+      </geometry>
+      <origin xyz="-0.0382799999999992 -3.12496121097359e-16 -0.0199985784719009" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <link name="laser_link">
+    <inertial>
+      <origin xyz="-0.156859903502094 4.09045498450007e-05 -0.103351884899403" rpy="0.0 -0.0 0.0"/>
+      <mass value="0.0"/>
+      <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/laser_link.dae"/>
+      </geometry>
+      <material name="__unnamed_material_6"/>
+      <origin xyz="-0.156859903502094 4.09045498450007e-05 -0.103351884899403" rpy="0.0 -0.0 0.0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://lidar_diffbot/meshes/laser_link.stl"/>
+      </geometry>
+      <origin xyz="-0.156859903502094 4.09045498450007e-05 -0.103351884899403" rpy="0.0 -0.0 0.0"/>
+    </collision>
+  </link>
+  <joint name="base_footprint_joint" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+  </joint>
+  <joint name="left_wheel_joint" type="continuous">
+    <dynamics damping="0.1" friction="0.1"/>
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="base_link"/>
+    <child link="left_wheel_link"/>
+    <axis xyz="0. 0. 1."/>
+    <origin xyz="0.0 0.09 0.0" rpy="-1.5708 -0.0 0.0"/>
+  </joint>
+  <joint name="right_wheel_joint" type="continuous">
+    <dynamics damping="0.1" friction="0.1"/>
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="base_link"/>
+    <child link="right_wheel_link"/>
+    <axis xyz="0. 0. 1."/>
+    <origin xyz="0.0 -0.09 0.0" rpy="-1.5708 -0.0 0.0"/>
+  </joint>
+  <joint name="caster_wheel_joint" type="fixed">
+    <dynamics damping="0.1" friction="0.1"/>
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="base_link"/>
+    <child link="caster_wheel_link"/>
+    <axis xyz="0. 0. 0."/>
+    <origin xyz="0.135 0.0 -0.024563" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="imu_joint" type="fixed">
+    <dynamics damping="0.1" friction="0.1"/>
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <axis xyz="0. 0. 0."/>
+    <origin xyz="0.03828 0.0 0.0016986" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <joint name="lidar_joint" type="fixed">
+    <dynamics damping="0.1" friction="0.1"/>
+    <limit effort="0.0" velocity="0.0"/>
+    <parent link="base_link"/>
+    <child link="laser_link"/>
+    <axis xyz="0. 0. 0."/>
+    <origin xyz="0.15686 -4.0905e-05 0.085052" rpy="0.0 -0.0 0.0"/>
+  </joint>
+  <material name="__unnamed_material_1">
+    <color rgba="0.79216 0.81961 0.93333 1.     "/>
+  </material>
+  <material name="__unnamed_material_2">
+    <color rgba="0.75294 0.75294 0.75294 1.     "/>
+  </material>
+  <material name="__unnamed_material_3">
+    <color rgba="0.75294 0.75294 0.75294 1.     "/>
+  </material>
+  <material name="__unnamed_material_4">
+    <color rgba="0.79608 0.79608 0.79608 1.     "/>
+  </material>
+  <material name="__unnamed_material_5">
+    <color rgba="1. 1. 1. 1."/>
+  </material>
+  <material name="__unnamed_material_6">
+    <color rgba="1. 1. 1. 1."/>
+  </material>
+</robot>
