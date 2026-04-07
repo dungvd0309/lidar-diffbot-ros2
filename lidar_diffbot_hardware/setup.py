@@ -2,7 +2,7 @@ import os
 from glob import glob
 from setuptools import find_packages, setup
 
-package_name = 'lidar_diffbot_bringup'
+package_name = 'lidar_diffbot_hardware'
 
 setup(
     name=package_name,
@@ -27,6 +27,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            f'encoders_publisher = {package_name}.encoders_publisher:main',
         ],
     },
 )

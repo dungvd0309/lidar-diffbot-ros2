@@ -4,21 +4,31 @@ import os
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.conditions import IfCondition, UnlessCondition
-from launch.substitutions import Command, LaunchConfiguration
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
 
-    micro_ros_publisher = Node(
-        package='micro_ros_agent',
-        executable='micro_ros_agent',
-        name='micro_ros_agent',
-        arguments=['serial', '--dev', '/dev/serial0']
+    encoders_publisher = Node(
+        package='lidar_diffbot_hardware',
+        executable='encoders_publisher',
+        name='encoders_publisher',
+        output='screen'
+    )
+
+    hardware_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                get_package_share_directory('lidar_diffbot_hardware'),
+                'launch',
+                'hardware.launch.py'
+            )
+        )
     )
 
     return LaunchDescription([
-        micro_ros_publisher
+        hardware_launch,
+        encoders_publisher
     ])
