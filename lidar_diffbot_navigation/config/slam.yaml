@@ -11,7 +11,7 @@ slam_toolbox:
     #lidar config
     max_laser_range: 8.0           
     scan_buffer_maximum_scan_distance: 8.0
-    minimum_time_interval: 0.1    # 10Hz → xử lý mọi scan
+    minimum_time_interval: 0.1    # 10Hz
     throttle_scans: 1
     #map update
     map_update_interval: 2.0
