@@ -11,13 +11,6 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
 
-    encoders_publisher = Node(
-        package='lidar_diffbot_hardware',
-        executable='encoders_publisher',
-        name='encoders_publisher',
-        output='screen'
-    )
-
     hardware_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
@@ -29,6 +22,5 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        hardware_launch,
-        encoders_publisher
+        hardware_launch
     ])

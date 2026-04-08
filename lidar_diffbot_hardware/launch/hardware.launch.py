@@ -19,6 +19,14 @@ def generate_launch_description():
         arguments=['serial', '--dev', '/dev/serial0']
     )
 
+    encoders_publisher = Node(
+        package='lidar_diffbot_hardware',
+        executable='encoders_publisher',
+        name='encoders_publisher',
+        output='screen'
+    )
+
     return LaunchDescription([
-        micro_ros_publisher
+        micro_ros_publisher,
+        encoders_publisher
     ])
