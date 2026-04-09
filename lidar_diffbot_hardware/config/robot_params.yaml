@@ -1,0 +1,4 @@
+/**:  
+  ros__parameters:
+    wheel_radius: 0.0325
+    wheel_separation: 0.18

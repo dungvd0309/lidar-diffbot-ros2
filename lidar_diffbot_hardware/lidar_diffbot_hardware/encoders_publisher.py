@@ -6,12 +6,15 @@ from sensor_msgs.msg import JointState
 from geometry_msgs.msg import Twist
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy
 
-base_wheel_track = 0.18
+DEFAULT_WHEEL_SEPARATION = 0.18
 
 class EncodersPublisher(Node):
     
     def __init__(self):
         super().__init__("encoders_publisher")
+
+        self.declare_parameter("wheel_separation", DEFAULT_WHEEL_SEPARATION)
+        self.wheel_separation = float(self.get_parameter("wheel_separation").value)
 
         qos_profile = QoSProfile(
             reliability=QoSReliabilityPolicy.RELIABLE,
@@ -39,7 +42,7 @@ class EncodersPublisher(Node):
         left_vel = msg.velocity[0]
         right_vel = msg.velocity[1]
         linear_x = (right_vel + left_vel) / 2
-        angular_z = (right_vel - left_vel) / base_wheel_track
+        angular_z = (right_vel - left_vel) / self.wheel_separation
 
         twist_msg = Twist()
         twist_msg.linear.x = linear_x
