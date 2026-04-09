@@ -10,7 +10,6 @@ install(
     meshes
     config
     launch
-    rviz
     world
   DESTINATION share/${PROJECT_NAME}
 )

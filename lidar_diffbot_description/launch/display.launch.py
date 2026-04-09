@@ -14,7 +14,7 @@ from launch_ros.parameter_descriptions import ParameterValue
 def generate_launch_description():
     pkg_share = get_package_share_directory('lidar_diffbot_description')
     default_model_path = os.path.join(pkg_share, 'urdf', 'colored_lidar_diffbot.urdf')
-    default_rviz_config_path = os.path.join(pkg_share, 'rviz', 'default.rviz')
+    default_rviz_config_path = os.path.join(pkg_share, 'config', 'default.rviz')
 
     # Launch arguments
     model_arg = DeclareLaunchArgument(
