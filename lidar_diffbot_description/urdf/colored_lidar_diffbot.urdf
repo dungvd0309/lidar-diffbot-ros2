@@ -101,7 +101,7 @@
       <origin xyz="-0.0382799999999992 -3.12496121097359e-16 -0.0199985784719009" rpy="0.0 -0.0 0.0"/>
     </collision>
   </link>
-  <link name="laser_link">
+  <link name="laser_frame">
     <inertial>
       <origin xyz="-0.156859903502094 4.09045498450007e-05 -0.103351884899403" rpy="0.0 -0.0 0.0"/>
       <mass value="0.0"/>
@@ -109,14 +109,14 @@
     </inertial>
     <visual>
       <geometry>
-        <mesh filename="package://lidar_diffbot_description/meshes/visual/laser_link.dae"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/visual/laser_frame.dae"/>
       </geometry>
       <material name="__unnamed_material_6"/>
       <origin xyz="-0.156859903502094 4.09045498450007e-05 -0.103351884899403" rpy="0.0 -0.0 0.0"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="package://lidar_diffbot_description/meshes/collision/laser_link.stl"/>
+        <mesh filename="package://lidar_diffbot_description/meshes/collision/laser_frame.stl"/>
       </geometry>
       <origin xyz="-0.156859903502094 4.09045498450007e-05 -0.103351884899403" rpy="0.0 -0.0 0.0"/>
     </collision>
@@ -162,7 +162,7 @@
     <dynamics damping="0.1" friction="0.1"/>
     <limit effort="0.0" velocity="0.0"/>
     <parent link="base_link"/>
-    <child link="laser_link"/>
+    <child link="laser_frame"/>
     <axis xyz="0. 0. 0."/>
     <origin xyz="0.15686 -4.0905e-05 0.085052" rpy="0.0 -0.0 0.0"/>
   </joint>

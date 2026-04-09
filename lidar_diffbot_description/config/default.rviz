@@ -87,7 +87,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        laser_link:
+        laser_frame:
           Alpha: 1
           Show Axes: false
           Show Trail: false
