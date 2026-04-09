@@ -14,10 +14,16 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
 
-    config_file = os.path.join(
+    robot_params = os.path.join(
         get_package_share_directory('lidar_diffbot_hardware'),
         'config',
         'robot_params.yaml'
+    )
+
+    x3lidar_params = os.path.join(
+        get_package_share_directory('lidar_diffbot_hardware'),
+        'config',
+        'X3.yaml'
     )
 
     micro_ros_publisher = Node(
@@ -32,7 +38,7 @@ def generate_launch_description():
         executable='encoders_publisher',
         name='encoders_publisher',
         output='screen',
-        parameters=[config_file]
+        parameters=[robot_params]
     )
 
     ydlidar_launch = IncludeLaunchDescription(
@@ -42,7 +48,10 @@ def generate_launch_description():
                 'launch',
                 'ydlidar_launch.py'
             )
-        )
+        ),
+        launch_arguments={
+            'params_file': x3lidar_params
+        }.items()
     )
 
     return LaunchDescription([
