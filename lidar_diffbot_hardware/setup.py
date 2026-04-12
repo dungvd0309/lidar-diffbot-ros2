@@ -15,7 +15,7 @@ setup(
         ('share/' + package_name + '/launch', glob('launch/*.launch.py')),
         ('share/' + package_name + '/config', glob('config/*.yaml')),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'robot_localization'],
     zip_safe=True,
     maintainer='dungvd',
     maintainer_email='dungvd0309@gmail.com',
@@ -28,7 +28,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            f'encoders_publisher = {package_name}.encoders_publisher:main',
+            f'encoders_processor = {package_name}.encoders_processor:main',
         ],
     },
 )

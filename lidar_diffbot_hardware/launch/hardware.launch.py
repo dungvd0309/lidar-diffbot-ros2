@@ -33,12 +33,21 @@ def generate_launch_description():
         arguments=['serial', '--dev', '/dev/serial0']
     )
 
-    encoders_publisher = Node(
+    encoders_processor = Node(
         package='lidar_diffbot_hardware',
-        executable='encoders_publisher',
-        name='encoders_publisher',
+        executable='encoders_processor',
+        namespace='encoders',
+        name='processor',
         output='screen',
         parameters=[robot_params]
+    )
+    
+    ekf_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_filter_node',
+        output='screen',
+        parameters=[os.path.join(get_package_share_directory('lidar_diffbot_hardware'), 'config', 'ekf.yaml')]
     )
 
     ydlidar_launch = IncludeLaunchDescription(
@@ -54,9 +63,16 @@ def generate_launch_description():
         }.items()
     )
 
+    # tf2_node = Node(package='tf2_ros',
+    #                 executable='static_transform_publisher',
+    #                 name='static_tf_pub_laser',
+    #                 arguments=['0', '0', '0','0', '0', '0', '0','base_footprint','odom'],
+    #                 )
+
     return LaunchDescription([
         micro_ros_publisher,
-        encoders_publisher, 
-        ydlidar_launch
-
+        encoders_processor, 
+        ekf_node,
+        ydlidar_launch,
+        # tf2_node
     ])

@@ -1,0 +1,38 @@
+ekf_filter_node:
+  ros__parameters:
+    frequency: 20.0
+    sensor_timeout: 0.2
+    two_d_mode: true
+    transform_time_offset: 0.0
+    transform_timeout: 0.1
+    print_diagnostics: true
+    debug: false
+
+    # Keep false if another node already publishes odom<->base TF.
+    # Set true after removing any conflicting static transform.
+    publish_tf: true
+    publish_acceleration: false
+
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_footprint
+    world_frame: odom
+
+    # Encoder odometry from lidar_diffbot_hardware/encoders_publisher.py
+    # Using twist terms only (vx, vyaw) is safer for low-cost encoder drift.
+    odom0: /encoders/odom
+     # [x, y, z, roll, pitch, yaw, vx, vy, vz, vroll, vpitch, vyaw, ax, ay, az]
+    odom0_config: [true, true, false,
+                   false, false, true,
+                   true,  false, false,  # vx (linear velocity)
+                   false, false, true,   # vyaw (angular velocity)
+                   false, false, false]
+    odom0_queue_size: 10
+    odom0_nodelay: false
+    odom0_differential: false
+    odom0_relative: false
+    # odom0_pose_rejection_threshold: 5.0
+    # odom0_twist_rejection_threshold: 1.5
+
+    # # Intentionally left simple: robot_localization defaults are used for
+    # # process and initial covariance so this file stays easy to maintain.
