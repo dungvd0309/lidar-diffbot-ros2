@@ -34,15 +34,7 @@ def generate_launch_description():
         parameters=[{'robot_description': robot_description_content}],
     )
 
-
-    joint_state_publisher = Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        output='screen'
-    )
-
     return LaunchDescription([
         model_arg,
-        robot_state_publisher,
-        joint_state_publisher,
+        robot_state_publisher
     ])
