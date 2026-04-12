@@ -11,6 +11,16 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
 
+    description_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(
+                get_package_share_directory('lidar_diffbot_description'),
+                'launch',
+                'description.launch.py'
+            )
+        )
+    )
+
     hardware_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(
@@ -22,5 +32,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        description_launch,
         hardware_launch
     ])
