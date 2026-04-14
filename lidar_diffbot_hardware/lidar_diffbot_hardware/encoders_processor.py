@@ -7,6 +7,23 @@ from nav_msgs.msg import Odometry
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy
 
 DEFAULT_WHEEL_SEPARATION = 0.18
+POSE_COVARIANCE = [
+    1.0e6, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 1.0e6, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 1.0e6, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 1.0e6, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 1.0e6, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 1.0e6,
+]
+
+TWIST_COVARIANCE = [
+    0.02, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 1.0e6, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 1.0e6, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 1.0e6, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 1.0e6, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.04,
+]
 
 class EncodersProcessor(Node):
     
@@ -14,7 +31,10 @@ class EncodersProcessor(Node):
         super().__init__("encoders_processor")
 
         self.declare_parameter("wheel_separation", DEFAULT_WHEEL_SEPARATION)
+
         self.wheel_separation = float(self.get_parameter("wheel_separation").value)
+        self.pose_covariance = POSE_COVARIANCE
+        self.twist_covariance = TWIST_COVARIANCE
 
         qos_profile = QoSProfile(
             reliability=QoSReliabilityPolicy.RELIABLE,
@@ -48,8 +68,11 @@ class EncodersProcessor(Node):
         odom_msg.header.stamp = msg.header.stamp
         odom_msg.header.frame_id = "odom"
         odom_msg.child_frame_id = "base_link"
+        odom_msg.pose.pose.orientation.w = 1.0
+        odom_msg.pose.covariance = self.pose_covariance
         odom_msg.twist.twist.linear.x = linear_x
         odom_msg.twist.twist.angular.z = angular_z
+        odom_msg.twist.covariance = self.twist_covariance
         self.odom_publisher_.publish(odom_msg)
 
 def main(args=None):
