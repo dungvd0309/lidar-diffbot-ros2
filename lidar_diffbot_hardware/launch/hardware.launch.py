@@ -30,7 +30,7 @@ def generate_launch_description():
         package='micro_ros_agent',
         executable='micro_ros_agent',
         name='micro_ros_agent',
-        arguments=['serial', '--dev', '/dev/serial0']
+        arguments=['serial', '--dev', '/dev/serial0', '-b', '2000000'],
     )
 
     encoders_processor = Node(
