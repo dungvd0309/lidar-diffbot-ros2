@@ -28,6 +28,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            f'battery_overlay = {package_name}.battery_overlay:main',
         ],
     },
 )

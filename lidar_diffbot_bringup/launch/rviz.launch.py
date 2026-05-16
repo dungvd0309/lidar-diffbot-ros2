@@ -12,5 +12,5 @@ def generate_launch_description():
             executable='rviz2',
             arguments=[
                 '-d', os.path.join(get_package_share_directory('lidar_diffbot_bringup'), 'rviz', 'lidar_diffbot.rviz')],
-        )
+        ),
     ])
