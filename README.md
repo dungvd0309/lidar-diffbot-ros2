@@ -1,7 +1,7 @@
 # lidar-diffbot-ros2
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![Firmware](https://img.shields.io/badge/firmware-repo-blue)](https://github.com/dungvd0309/lidar-diffbot-firmware)
+[![Firmware](https://img.shields.io/badge/Firmware-repo-blue)](https://github.com/dungvd0309/lidar-diffbot-firmware)
 [![ROS2_packages](https://img.shields.io/badge/ROS2_packages-repo-blue)](https://github.com/dungvd0309/lidar-diffbot-ros2)
 
 ROS 2 packages for a differential-drive robot with LIDAR, SLAM, navigation, and autonomous exploration. Firmware and hardware build details are in [lidar-diffbot-firmware](https://github.com/dungvd0309/lidar-diffbot-firmware) repo. 
@@ -71,7 +71,7 @@ source install/setup.bash
 
 ###  Run robot bringup
 
-This starts the robot description and hardware drivers (run on Raspberry Pi 4)
+- This starts the robot description and hardware drivers (run on Raspberry Pi 4)
 
 ```bash
 ros2 launch lidar_diffbot_bringup robot.launch.py
@@ -79,19 +79,19 @@ ros2 launch lidar_diffbot_bringup robot.launch.py
 
 ### Run SLAM or Navigation
 
-Open RViz
+- Open RViz
 
 ```bash
 ros2 launch lidar_diffbot_bringup rviz.launch.py
 ```
 
-SLAM (create a new map):
+- SLAM (create a new map):
 
 ```bash
 ros2 launch lidar_diffbot_navigation slam.launch.py
 ```
 
-Navigation (requires an existing map):
+- Navigation (requires an existing map):
 
 ```bash
 ros2 launch lidar_diffbot_navigation navigation.launch.py map:=/path/to/map.yaml
@@ -99,7 +99,7 @@ ros2 launch lidar_diffbot_navigation navigation.launch.py map:=/path/to/map.yaml
 
 ### Auto exploration 
 
-Auto explore and save map:
+- Auto explore and save map:
 
 ```bash
 ros2 launch auto_mapper auto_mapper.launch.py map_path:=~/maps/my_map
@@ -114,6 +114,10 @@ ros2 launch auto_mapper auto_mapper.launch.py map_path:=~/maps/my_map
 | `lidar_diffbot_description` | URDF + 3D model |
 | `lidar_diffbot_hardware` | Hardware drivers + EKF sensor fusion |
 | `lidar_diffbot_navigation` | SLAM + Nav2 configuration |
+
+### Node graphs
+<img width="394" height="300" alt="auto_mapper_graph" src="https://github.com/user-attachments/assets/4ab47fcc-44ec-4c91-85ea-b8f25b621b0d" />
+<img width="595" height="300" alt="nav_graph" src="https://github.com/user-attachments/assets/35b7cc92-e198-406a-8c3e-fa068705a3bd" />
 
 ## Acknowledgements
 
