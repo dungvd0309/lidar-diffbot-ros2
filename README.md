@@ -2,6 +2,8 @@
 
 ROS 2 packages for a differential-drive robot with LIDAR, SLAM, navigation, and autonomous exploration. 
 
+<img width="500" height="500" alt="robot_pic" src="https://github.com/user-attachments/assets/11d7f795-ffd3-4c5b-8679-49c54d89d182" />
+
 [Demo video on YouTube](https://youtu.be/oauRnWwvWOY?t=132)
 
 ## Firmware
