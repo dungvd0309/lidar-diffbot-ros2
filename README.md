@@ -1,29 +1,39 @@
 # lidar-diffbot-ros2
 
-ROS 2 packages for a differential-drive robot with LIDAR, SLAM, navigation, and autonomous exploration. 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![Firmware](https://img.shields.io/badge/firmware-repo-blue)](https://github.com/dungvd0309/lidar-diffbot-firmware)
+[![ROS2_packages](https://img.shields.io/badge/ROS2_packages-repo-blue)](https://github.com/dungvd0309/lidar-diffbot-ros2)
 
-<img width="500" height="500" alt="robot_pic" src="https://github.com/user-attachments/assets/11d7f795-ffd3-4c5b-8679-49c54d89d182" />
+ROS 2 packages for a differential-drive robot with LIDAR, SLAM, navigation, and autonomous exploration. Firmware and hardware build details are in [lidar-diffbot-firmware](https://github.com/dungvd0309/lidar-diffbot-firmware) repo. 
 
-[Demo video on YouTube](https://youtu.be/oauRnWwvWOY?t=132)
+<div align="center">
+<img width="400" height="400" alt="robot_pic" src="https://github.com/user-attachments/assets/11d7f795-ffd3-4c5b-8679-49c54d89d182"/>
 
-## Firmware
-Firmware and hardware details are documented here:
-https://github.com/dungvd0309/lidar-diffbot-firmware
+Demo video on [YouTube](https://youtu.be/oauRnWwvWOY?t=132)
+
+</div>
+
+## Table of Contents
+- [1. Key features](#1-key-features)
+- [2. Requirements](#2-requirements)
+- [3. Installation](#3-installation)
+- [4. How to start](#4-how-to-start)
+- [5. Package overview](#5-package-overview)
 
 ## 1. Key features
 
-- Robot description (URDF) + bringup launch files
-- EKF fusion for encoder and IMU data
-- SLAM via slam_toolbox
-- Navigation via Nav2
-- Auto exploration via auto_mapper
+- Builds a 2D map of an unknown environment with SLAM.
+- Autonomously explores and maps an area end-to-end, saving the finished map automatically when exploration completes.
+- Navigates to any point on a saved map while avoiding obstacles in real time.
+- Fuses wheel encoder and IMU data with EKF for more accurate localization.
+- Visualizes robot state, map, and battery level live in RViz.
 
-## 2. Requirement
+## 2. Requirements
 ### Hardware
 - ESP32 DevKit
 - Raspberry Pi 4 
 - YDLIDAR X3
-- JGA25 DC motors with encoders + 65mm blue wheels
+- 2x JGA25 DC motors with encoders + 2x 65mm blue wheels
 - BNO055 IMU
 - 12V battery pack
 - 3D printed robot frame
@@ -35,8 +45,8 @@ https://github.com/dungvd0309/lidar-diffbot-firmware
 - SLAM toolbox
 - Nav2
 - rviz_2d_overlay_plugins (for battery overlay)
-- [YDLIDAR SDK](https://github.com/YDLIDAR/YDLidar-SDK)
-- [YDLIDAR ROS 2 driver](https://github.com/YDLIDAR/ydlidar_ros2_driver/tree/humble) built and sourced
+- [YDLIDAR SDK](https://github.com/YDLIDAR/YDLidar-SDK) 
+- [YDLIDAR ROS 2 driver](https://github.com/YDLIDAR/ydlidar_ros2_driver/tree/humble) (built and sourced workspace)
 
 ## 3. Installation
 ```bash
@@ -59,7 +69,7 @@ source install/setup.bash
 
 ## 4. How to start
 
-### a) Run robot bringup
+###  Run robot bringup
 
 This starts the robot description and hardware drivers (run on Raspberry Pi 4)
 
@@ -67,7 +77,7 @@ This starts the robot description and hardware drivers (run on Raspberry Pi 4)
 ros2 launch lidar_diffbot_bringup robot.launch.py
 ```
 
-### b) Run SLAM or Navigation
+### Run SLAM or Navigation
 
 Open RViz
 
@@ -87,7 +97,7 @@ Navigation (requires an existing map):
 ros2 launch lidar_diffbot_navigation navigation.launch.py map:=/path/to/map.yaml
 ```
 
-### c) Auto exploration 
+### Auto exploration 
 
 Auto explore and save map:
 
@@ -95,14 +105,16 @@ Auto explore and save map:
 ros2 launch auto_mapper auto_mapper.launch.py map_path:=~/maps/my_map
 ```
 
-## Package overview
+## 5. Package overview
 
-- auto_mapper: auto exploration 
-- lidar_diffbot_bringup: bringup + RViz launch
-- lidar_diffbot_description: URDF + model
-- lidar_diffbot_hardware: hardware drivers + EKF
-- lidar_diffbot_navigation: SLAM + Nav2 config
+| Package | Description |
+|---|---|
+| `auto_mapper` | Autonomous frontier exploration and map saving |
+| `lidar_diffbot_bringup` | Robot bringup + RViz launch files |
+| `lidar_diffbot_description` | URDF + 3D model |
+| `lidar_diffbot_hardware` | Hardware drivers + EKF sensor fusion |
+| `lidar_diffbot_navigation` | SLAM + Nav2 configuration |
 
-## Reference repositories
+## Acknowledgements
 
 - https://github.com/kaiaai/auto_mapper
