@@ -4,13 +4,14 @@
 [![Firmware](https://img.shields.io/badge/Firmware-repo-blue)](https://github.com/dungvd0309/lidar-diffbot-firmware)
 [![ROS2_packages](https://img.shields.io/badge/ROS2_packages-repo-blue)](https://github.com/dungvd0309/lidar-diffbot-ros2)
 
-ROS 2 packages for a differential-drive robot with LIDAR, SLAM, navigation, and autonomous exploration. Firmware and hardware build details are in [lidar-diffbot-firmware](https://github.com/dungvd0309/lidar-diffbot-firmware) repo. 
+ROS 2 packages for a differential-drive robot with LIDAR, SLAM, navigation, and autonomous exploration. 
+
+> **This is a two-repo project.** This repo contains the ROS 2 software stack. ESP32 firmware and hardware/wiring details are in [lidar-diffbot-firmware](https://github.com/dungvd0309/lidar-diffbot-firmware).
 
 <div align="center">
-<img width="400" height="400" alt="robot_pic" src="https://github.com/user-attachments/assets/11d7f795-ffd3-4c5b-8679-49c54d89d182"/>
+  <img width="400" height="400" alt="robot_pic" src="https://github.com/user-attachments/assets/11d7f795-ffd3-4c5b-8679-49c54d89d182"/>
 
-Demo video on [YouTube](https://youtu.be/oauRnWwvWOY?t=132)
-
+  *Demo video on [YouTube](https://youtu.be/oauRnWwvWOY?t=132)*
 </div>
 
 ## Table of Contents
@@ -25,7 +26,7 @@ Demo video on [YouTube](https://youtu.be/oauRnWwvWOY?t=132)
 - Builds a 2D map of an unknown environment with SLAM.
 - Autonomously explores and maps an area end-to-end, saving the finished map automatically when exploration completes.
 - Navigates to any point on a saved map while avoiding obstacles in real time.
-- Fuses wheel encoder and IMU data with EKF for more accurate localization.
+- Fuses wheel encoder and IMU data with EKF (Extend Kalman Filter) for more accurate localization.
 - Visualizes robot state, map, and battery level live in RViz.
 
 ## 2. Requirements
